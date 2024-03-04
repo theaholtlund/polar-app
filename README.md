@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Polar Data Analysis App
+
+This is an app for analysing data collected through Polar activities.
 
 ## Getting Started
 
