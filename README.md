@@ -1,6 +1,6 @@
-# Polar Data Analysis App
+# Polar Data Analysis
 
-This is an app for analysing data collected through Polar activities.
+This is a tool for analysing data collected through Polar activities.
 
 ## Getting Started
 
