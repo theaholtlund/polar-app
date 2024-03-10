@@ -3,6 +3,21 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
+// Define default headers
+const defaultHeaders = () => {
+  return {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+};
+
+const headers = (accessToken: string) => {
+  return {
+    ...defaultHeaders(),
+    Authorization: `Bearer ${accessToken}`,
+  };
+};
+
 // Check if environment variables are defined, throw error if not
 if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   throw new Error(
