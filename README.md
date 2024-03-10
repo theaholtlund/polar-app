@@ -4,6 +4,9 @@ This is a tool for analysing data collected through Polar activities.
 
 ## Getting Started
 
+Add your environment variables to a project .env file. Generate a NextAuth.js secret by running the command:
+`openssl rand -base64 32`
+
 First, run the development server:
 
 ```bash
