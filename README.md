@@ -4,25 +4,27 @@ This is a tool for analysing data collected through Polar activities.
 
 ## Getting Started
 
-Duplicate .env.example to an .env.local file, and fill in the environment variables. Generate a NextAuth.js secret by running the command:
+1. Duplicate .env.example to an .env.local file, and fill in the environment variables.
+
+2. Generate a NextAuth.js secret by running the command:
 
 ```bash
 openssl rand -base64 32
 ```
 
-First, run the development server:
+3. Install project dependencies specified in `package.json` file:
+
+```bash
+npm install
+```
+
+4. Then, run the application:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [localhost](http://localhost:3000) with your browser to interact with the application.
+5. Open [localhost](http://localhost:3000) with your browser to interact with the application.
 
 ## More on Next.js
 
