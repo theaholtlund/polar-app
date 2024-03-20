@@ -1,6 +1,7 @@
 // Set up authorisation for app using route handler
 
 import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
 import GithubProvider from "next-auth/providers/github";
 
 // Define default headers
@@ -25,15 +26,30 @@ if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
   );
 }
 
-export const authOptions = {
-  // Configure one or more authentication providers
+export default NextAuth({
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+    Providers.OAuth({
+      id: "polar",
+      name: "Polar",
+      type: "oauth",
+      version: "2.0",
+      scope: "", // Define the scope according to Polar's API requirements
+      params: { grant_type: "authorization_code" },
+      accessTokenUrl: "https://polarremote.com/v2/oauth2/token",
+      requestTokenUrl: "https://polarremote.com/v2/oauth2/token",
+      authorizationUrl:
+        "https://flow.polar.com/oauth2/authorization?response_type=code",
+      profileUrl: "https://www.polaraccesslink.com/v3/users",
+      clientId: process.env.POLAR_CLIENT_ID,
+      clientSecret: process.env.POLAR_CLIENT_SECRET,
+      profile: (profile) => {
+        return {
+          id: profile.userId,
+          name: profile.firstName + " " + profile.lastName,
+          email: null, // Assume Polar's API might not provide email
+        };
+      },
     }),
-    // ...add more providers here
   ],
-};
-
-export default NextAuth(authOptions);
+  // Additional NextAuth configuration as needed
+});
