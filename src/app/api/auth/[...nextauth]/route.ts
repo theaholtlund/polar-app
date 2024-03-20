@@ -7,7 +7,7 @@ const createAuthHeaders = (token: string) => ({
   "Content-Type": "application/json",
 });
 
-// Function to register or update the user in your app's system using Polar's data
+// Register or update the user in app using Polar's data
 async function updateUserProfile(accessToken: string, userId: string) {
   const payload = { "member-id": userId };
 
@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
       accessTokenUrl: "https://polarremote.com/v2/oauth2/token",
       authorization: {
         url: "https://flow.polar.com/oauth2/authorization?response_type=code",
-        params: { scope: "accesslink.read_all" }, // Correctly specifying scope here
+        params: { scope: "accesslink.read_all" },
       },
       clientId: process.env.POLAR_CLIENT_ID,
       clientSecret: process.env.POLAR_CLIENT_SECRET,
@@ -38,7 +38,6 @@ export const authOptions: NextAuthOptions = {
         return {
           id: profile["polar-user-id"],
           name: `${profile["first-name"]} ${profile["last-name"]}`,
-          email: profile.email, // Assuming Polar provides an email, otherwise set to null
         };
       },
     },
