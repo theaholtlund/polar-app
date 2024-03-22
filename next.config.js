@@ -1,3 +1,4 @@
+// Import types and functionality from types and functionality
 /** @type {import('next').NextConfig} */
 
 // Make  env variables available to application

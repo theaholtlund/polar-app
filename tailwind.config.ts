@@ -1,3 +1,4 @@
+// Import types and functionality from types and functionality
 import type { Config } from "tailwindcss";
 
 const config: Config = {
