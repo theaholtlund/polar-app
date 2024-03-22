@@ -60,7 +60,7 @@ export const authOptions: NextAuthOptions = {
       return false;
     },
   },
-  // Custom pages for handling different parts of the auth flow
+  // Custom pages for handling different parts of the authentication flow
   pages: {
     signIn: "/auth/signin",
   },
