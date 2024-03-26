@@ -1,8 +1,10 @@
 # Polar Data Analysis
 
-This is a tool for analysing data collected through Polar activities.
+The program allows for efficient and comprehensive analysis of data collected through various Polar activities. It offers users with platform to analyse their activity, training and health data.
 
 ## Getting Started
+
+To set up the Polar Data Analysis tool on your local environment, follow these steps:
 
 1. Duplicate .env.example to an .env.local file, and fill in the environment variables.
 
@@ -28,7 +30,7 @@ npm run dev
 
 ## More on Next.js
 
-To learn more about Next.js, take a look at the following resources:
+For those interested in diving deeper into the Next.js framework, the following resources are availabile:
 
 - [Next.js Documentation](https://nextjs.org/docs): Learn about Next.js features and API
 - [Learn Next.js](https://nextjs.org/learn): An interactive Next.js tutorial
