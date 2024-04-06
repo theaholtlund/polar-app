@@ -11,6 +11,27 @@ const ServerProtectedPage = async () => {
     redirect("/api/auth/signin?callbackUrl=/protected/server");
   }
 
+
+  const headers = {
+    Accept: 'application/json',
+    Authorization: `Bearer ${session.accessToken}`,
+  }
+
+  fetch(
+    'https://www.polaraccesslink.com/v3/users/continuous-heart-rate?from=2023-08-24&to=2023-08-24',
+    {
+      method: 'GET',
+
+      headers: headers,
+    }
+  )
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function (body) {
+      console.log(body)
+    })
+
   return (
     <section className="py-24">
       <div className="container">
