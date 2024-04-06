@@ -11,26 +11,25 @@ const ServerProtectedPage = async () => {
     redirect("/api/auth/signin?callbackUrl=/protected/server");
   }
 
-
   const headers = {
-    Accept: 'application/json',
+    Accept: "application/json",
     Authorization: `Bearer ${session.accessToken}`,
-  }
+  };
 
   fetch(
-    'https://www.polaraccesslink.com/v3/users/continuous-heart-rate?from=2023-08-24&to=2023-08-24',
+    "https://www.polaraccesslink.com/v3/users/continuous-heart-rate?from=2023-07-04&to=2023-07-05",
     {
-      method: 'GET',
+      method: "GET",
 
       headers: headers,
     }
   )
     .then(function (res) {
-      return res.json()
+      return res.json();
     })
     .then(function (body) {
-      console.log(body)
-    })
+      console.log(JSON.stringify(body, null, 2));
+    });
 
   return (
     <section className="py-24">
