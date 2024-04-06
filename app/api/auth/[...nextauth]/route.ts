@@ -33,6 +33,24 @@ const registerUser = async (accessToken: string, userId: string) => {
 // All settings for NextAuth, configure authorisation
 export const authOptions: NextAuthOptions = {
   debug: true,
+    callbacks: {
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: { ...session.user, id: token.id },
+        accessToken: token.accessToken,
+      }
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      if (user) {
+        token.id = user.id
+      }
+      if (account) {
+        token.accessToken = account.access_token
+      }
+      return token
+    },
+  },
   providers: [
     {
       id: "polar",
