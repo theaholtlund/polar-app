@@ -2,12 +2,12 @@
 import Link from "next/link";
 import SignInButton from "./SignInButton";
 
-// Define header component for app
+// Define header component for the app
 const Header = () => {
   return (
     <header className="flex h-24 flex-col justify-center bg-stone-100">
       <nav className="container">
-        <ul className="flex items-center justify-between gap-8 font-medium tracking-wider text-stone-500">
+        <ul className="flex items-center justify-between gap-8 font-medium tracking-wider text-stone-500 pl-10">
           <li className="text-sm">
             <Link href="/">Home</Link>
           </li>
