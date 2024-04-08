@@ -9,13 +9,13 @@ const Header = () => {
       <nav className="container">
         <ul className="flex items-center justify-between gap-8 font-medium tracking-wider text-stone-500 pl-10">
           <li className="text-sm">
-            <Link href="/">Home</Link>
+            <Link href="/">Home Page</Link>
           </li>
           <li className="text-sm">
-            <Link href="/protected/server">Protected (server)</Link>
+            <Link href="/protected/server">Server Page (Protected)</Link>
           </li>
           <li className="text-sm">
-            <Link href="/protected/client">Protected (client)</Link>
+            <Link href="/protected/client">Client Page (Protected)</Link>
           </li>
           <li>
             <SignInButton />
