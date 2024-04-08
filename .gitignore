@@ -1,5 +1,5 @@
 # Files to ignore
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more on ignoring files
 
 # Dependencies
 /node_modules
@@ -34,4 +34,6 @@ next-env.d.ts
 
 # Miscellaneous
 .DS_Store
-*.pem
+
+# User data
+user-data
