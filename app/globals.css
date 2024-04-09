@@ -1,7 +1,9 @@
+/* Add styles for consistent and extendable styling */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Functionality related to styling the header*/
 .header {
   @apply flex h-24 flex-col justify-center bg-stone-100;
 }
