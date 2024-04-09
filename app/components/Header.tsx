@@ -5,16 +5,16 @@ import SignInButton from "./SignInButton";
 // Define header component for the app
 const Header = () => {
   return (
-    <header className="flex h-24 flex-col justify-center bg-stone-100">
-      <nav className="container">
-        <ul className="flex items-center justify-between gap-8 font-medium tracking-wider text-stone-500 pl-10">
-          <li className="text-sm">
+    <header className="header">
+      <nav className="header-nav">
+        <ul className="header-nav-ul">
+          <li className="header-nav-li">
             <Link href="/">Home Page</Link>
           </li>
-          <li className="text-sm">
+          <li className="header-nav-li">
             <Link href="/protected/server">Server Page (Protected)</Link>
           </li>
-          <li className="text-sm">
+          <li className="header-nav-li">
             <Link href="/protected/client">Client Page (Protected)</Link>
           </li>
           <li>

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header {
+  @apply flex h-24 flex-col justify-center bg-stone-100;
+}
+
+.header-nav {
+  @apply container;
+}
+
+.header-nav-ul {
+  @apply flex items-center justify-between gap-8 font-medium tracking-wider text-stone-500 pl-10;
+}
+
+.header-nav-li {
+  @apply text-sm;
+}
