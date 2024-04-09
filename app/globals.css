@@ -8,6 +8,11 @@
   @apply px-4 lg:px-4;
 }
 
+/* Functionality related to styling client page */
+.client-page-content {
+  @apply px-4 lg:px-4;
+}
+
 /* Functionality related to styling the header*/
 .header {
   @apply flex h-24 flex-col justify-center bg-stone-100;

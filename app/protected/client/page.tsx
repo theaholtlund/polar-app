@@ -15,7 +15,7 @@ const ClientProtectPage = () => {
 
   return (
     <section className="py-24">
-      <div className="container">
+      <div className="container mx-auto client-page-content">
         <h1 className="text-2xl font-bold">
           This is a <span className="text-emerald-500">client-side</span>{" "}
           protected page
