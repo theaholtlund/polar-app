@@ -1,10 +1,10 @@
 "use client";
 
 // Import types, components and other functionality
-import React, { useState } from "react"; // Import useState here
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
-import TimeRangeSelector from "../../components/TimeRangeSelector"; // Ensure correct path
+import TimeRangeSelector from "../../components/TimeRangeSelector";
 
 // Type definition for the props expected
 interface HeartRateData {
@@ -24,20 +24,17 @@ const ClientProtectPage = () => {
   const [heartRates, setHeartRates] = useState<HeartRateData[]>([]);
 
   const handleTimeRangeChange = (from: string, to: string) => {
-    if (!session) return; // Check if session exists
+    if (!session) return;
 
     const headers = {
       Accept: "application/json",
-      Authorization: `Bearer ${session.accessToken}`, // Assuming accessToken is available
+      Authorization: `Bearer ${session.accessToken}`,
     };
 
-    fetch(
-      `https://www.polaraccesslink.com/v3/users/continuous-heart-rate?from=${from}&to=${to}`,
-      {
-        method: "GET",
-        headers: headers,
-      }
-    )
+    fetch(`/api/heart-rate?from=${from}&to=${to}`, {
+      method: "GET",
+      headers: headers,
+    })
       .then((response) => response.json())
       .then((data) => {
         setHeartRates(data);
@@ -62,16 +59,11 @@ const ClientProtectPage = () => {
         <h2 className="mt-4 font-medium">Heart Rate Data:</h2>
         {heartRates.length > 0 ? (
           <ul>
-            {heartRates.map(
-              (
-                rate: HeartRateData,
-                index: number // Explicitly type 'rate' and 'index'
-              ) => (
-                <li
-                  key={index}
-                >{`Time: ${rate.sample_time}, Heart Rate: ${rate.heart_rate}`}</li>
-              )
-            )}
+            {heartRates.map((rate: HeartRateData, index: number) => (
+              <li
+                key={index}
+              >{`Time: ${rate.sample_time}, Heart Rate: ${rate.heart_rate}`}</li>
+            ))}
           </ul>
         ) : (
           <p>No heart rate data available for the selected time range.</p>
