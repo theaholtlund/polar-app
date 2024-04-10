@@ -28,6 +28,12 @@ npm run dev
 
 5. Open [localhost](http://localhost:3000) with your browser to interact with the application.
 
+## Client vs. Server Protected Page
+
+- **Client-Protected Page**: Handles authentication on the client side. The page may load content and scripts, that then verify if the user is authenticated. Commonly used when dynamic client-side behavior is needed.
+
+- **Server-Protected Page**: Authentication is handled server-side before the page content is delivered to the browser. Commonly used for sensitive content, ensuring no part of the page is accessible without proper credentials.
+
 ## More on Next.js
 
 For those interested in diving deeper into the Next.js framework, the following resources are availabile:
