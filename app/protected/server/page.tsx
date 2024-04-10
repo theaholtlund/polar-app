@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 
-// Define client rendered page
+// Define server rendered page
 const ServerProtectedPage = async () => {
   const session = await getServerSession(authOptions);
 
