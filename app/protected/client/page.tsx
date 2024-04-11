@@ -66,7 +66,10 @@ const ClientProtectPage = () => {
             ))}
           </ul>
         ) : (
-          <p>No heart rate data available for the selected time range.</p>
+          <p>
+            Select a time range to see registered heart rates in that time
+            interval.
+          </p>
         )}
         <p className="mt-4">You are logged in as: {session?.user?.name}</p>
       </div>
