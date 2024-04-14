@@ -26,13 +26,23 @@ const ClientProtectPage = () => {
   const handleTimeRangeChange = (from: string, to: string) => {
     if (!session) return;
 
-    // Account for Polar API limitations, date cannot be more than one year ago
+    // Account for Polar API limitations
+    // Dates cannot be more than one year ago, or more than 28 days apart
     const oneYearAgo = new Date();
     oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
     const fromDate = new Date(from);
+    const toDate = new Date(to);
+    const timeDiff = Math.abs(toDate.getTime() - fromDate.getTime());
+    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
     if (fromDate < oneYearAgo) {
       alert("Selected time range cannot be more than one year.");
+      return;
+    }
+
+    if (diffDays > 28) {
+      alert("Date range between from and to cannot be more than 28 days.");
       return;
     }
 
