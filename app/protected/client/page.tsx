@@ -26,6 +26,16 @@ const ClientProtectPage = () => {
   const handleTimeRangeChange = (from: string, to: string) => {
     if (!session) return;
 
+    // Account for Polar API limitations, date cannot be more than one year ago
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+    const fromDate = new Date(from);
+    if (fromDate < oneYearAgo) {
+      alert("Selected time range cannot be more than one year.");
+      return;
+    }
+
     const headers = {
       Accept: "application/json",
       Authorization: `Bearer ${session.accessToken}`,
