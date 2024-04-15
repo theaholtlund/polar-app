@@ -8,8 +8,12 @@ import TimeRangeSelector from "../../components/TimeRangeSelector";
 
 // Type definition for the props expected
 interface HeartRateData {
-  heart_rate: number;
-  sample_time: string;
+  polar_user: string;
+  date: string;
+  heart_rate_samples: {
+    time: string;
+    heart_rate: number;
+  }[];
 }
 
 // Define client rendered page
@@ -82,7 +86,7 @@ const ClientProtectPage = () => {
             {heartRates.map((rate: HeartRateData, index: number) => (
               <li
                 key={index}
-              >{`Time: ${rate.sample_time}, Heart Rate: ${rate.heart_rate}`}</li>
+              >{`Time: ${rate.date}, Heart Rate: ${rate.heart_rate_samples}`}</li>
             ))}
           </ul>
         ) : (
