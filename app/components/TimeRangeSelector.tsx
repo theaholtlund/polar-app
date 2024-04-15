@@ -11,8 +11,9 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
   onTimeRangeChange,
 }) => {
   // State hooks to manage the 'from' and 'to' date values
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  // Set default date values, can be changed by user in interface
+  const [from, setFrom] = useState("2023-06-01");
+  const [to, setTo] = useState("2023-06-28");
 
   // Handle form submission, prevent default form behavior and trigger callback
   const handleSubmit = (event: React.FormEvent) => {
