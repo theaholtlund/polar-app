@@ -11,8 +11,8 @@ interface HeartRateData {
   polar_user: string;
   date: string;
   heart_rate_samples: {
-    time: string;
     heart_rate: number;
+    sample_time: string;
   }[];
 }
 
