@@ -39,6 +39,15 @@
   @apply mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm;
 }
 
-.submit-button {
-  @apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500;
+/* Functionality related to styling the sign-in button */
+.sign-in-button {
+  @apply rounded-md border border-stone-300 px-3 py-1 text-sm dark:border-stone-600;
+}
+
+.sign-in-button:hover {
+  @apply bg-orange-500;
+}
+
+.sign-in-button:active {
+  @apply bg-orange-600;
 }
