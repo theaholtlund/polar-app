@@ -1,6 +1,7 @@
 "use client";
 
 // Import types, components and other functionality
+import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 // Define signin button for app
@@ -14,12 +15,10 @@ const SignInButton = () => {
       signIn();
     }
   };
+
   return (
     <>
-      <button
-        className="rounded-md border border-stone-300 px-3 py-1 text-sm dark:border-stone-600"
-        onClick={() => buttonClick()}
-      >
+      <button className="sign-in-button" onClick={() => buttonClick()}>
         {session ? "Sign out" : "Sign in"}
       </button>
     </>
