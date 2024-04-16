@@ -45,9 +45,9 @@
 }
 
 .sign-in-button:hover {
-  @apply bg-orange-500;
+  @apply bg-orange-300;
 }
 
 .sign-in-button:active {
-  @apply bg-orange-600;
+  @apply bg-orange-400;
 }
