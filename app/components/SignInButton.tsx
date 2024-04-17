@@ -3,7 +3,7 @@
 // Import types, components and other functionality
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import styles from "../../styles/SignInButton.module.css";
+import styles from "../../styles/Button.module.css";
 
 // Define signin button for app
 const SignInButton = () => {
@@ -19,7 +19,7 @@ const SignInButton = () => {
 
   return (
     <>
-      <button className={styles["sign-in-button"]} onClick={buttonClick}>
+      <button className={styles["custom-button"]} onClick={buttonClick}>
         {session ? "Sign out" : "Sign in"}
       </button>
     </>
