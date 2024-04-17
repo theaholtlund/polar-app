@@ -1,6 +1,6 @@
 // Import types, components and other functionality
 import React, { useState } from "react";
-import styles from "../../styles/Button.module.css";
+import styles from "../../styles/CustomButton.module.css";
 
 // Type definition for the props expected
 interface TimeRangeSelectorProps {
