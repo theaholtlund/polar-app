@@ -1,6 +1,6 @@
 // Import types, components and other functionality
 import React, { useState } from "react";
-import styles from "../../styles/SignInButton.module.css";
+import styles from "../../styles/Button.module.css";
 
 // Type definition for the props expected
 interface TimeRangeSelectorProps {
@@ -51,7 +51,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
           required
         />
       </div>
-      <button type="submit" className={styles["sign-in-button"]}>
+      <button type="submit" className={styles["custom-button"]}>
         Fetch Heart Rates
       </button>
     </form>
