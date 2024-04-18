@@ -1,6 +1,7 @@
 // Import types, components and other functionality
 import React, { useState } from "react";
-import styles from "../../styles/CustomButton.module.css";
+import customButton from "../../styles/CustomButton.module.css";
+import timeRange from "../../styles/TimeRange.module.css";
 
 // Type definition for the props expected
 interface TimeRangeSelectorProps {
@@ -26,7 +27,7 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="from" className="block text-label">
+        <label htmlFor="from" className={timeRange["custom-text-label"]}>
           From
         </label>
         <input
@@ -34,12 +35,12 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
           id="from"
           value={from}
           onChange={(e) => setFrom(e.target.value)}
-          className="input-field"
+          className={timeRange["custom-input-field"]}
           required
         />
       </div>
       <div>
-        <label htmlFor="to" className="block text-label">
+        <label htmlFor="to" className={timeRange["custom-text-label"]}>
           To
         </label>
         <input
@@ -47,11 +48,11 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
           id="to"
           value={to}
           onChange={(e) => setTo(e.target.value)}
-          className="input-field"
+          className={timeRange["custom-input-field"]}
           required
         />
       </div>
-      <button type="submit" className={styles["custom-button"]}>
+      <button type="submit" className={customButton["custom-button"]}>
         Fetch Heart Rates
       </button>
     </form>
