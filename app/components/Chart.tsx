@@ -1,19 +1,16 @@
+// Import types, components and other functionality
 import React, { useMemo } from "react";
 import { Bar } from "@visx/shape";
 import { Group } from "@visx/group";
 import { GradientTealBlue } from "@visx/gradient";
-import letterFrequency, {
-  LetterFrequency,
-} from "@visx/mock-data/lib/mocks/letterFrequency";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { HeartRateSamples } from "../types/heartRates";
 
-const data = letterFrequency.slice(5);
 const verticalMargin = 120;
 
-// accessors
-const getLetter = (d: LetterFrequency) => d.letter;
-const getLetterFrequency = (d: LetterFrequency) => Number(d.frequency) * 100;
+// Define accessors
+const getSampleTime = (d: HeartRateSamples) => d.sample_time;
+const getHeartRate = (d: HeartRateSamples) => Number(d.heart_rate);
 
 export type BarsProps = {
   width: number;
@@ -26,17 +23,19 @@ export default function Chart({
   height,
   heart_rate_samples,
 }: BarsProps) {
-  // bounds
+  // Bounds
   const xMax = width;
   const yMax = height - verticalMargin;
 
-  // scales, memoize for performance
+  console.log(heart_rate_samples);
+
+  // Scales, memoise the result for performance
   const xScale = useMemo(
     () =>
       scaleBand<string>({
         range: [0, xMax],
         round: true,
-        domain: data.map(getLetter),
+        domain: heart_rate_samples.map(getSampleTime),
         padding: 0.4,
       }),
     [xMax]
@@ -46,7 +45,7 @@ export default function Chart({
       scaleLinear<number>({
         range: [yMax, 0],
         round: true,
-        domain: [0, Math.max(...data.map(getLetterFrequency))],
+        domain: [0, Math.max(...heart_rate_samples.map(getHeartRate))],
       }),
     [yMax]
   );
@@ -56,10 +55,10 @@ export default function Chart({
       <GradientTealBlue id="teal" />
       <rect width={width} height={height} fill="url(#teal)" rx={14} />
       <Group top={verticalMargin / 2}>
-        {data.map((d) => {
-          const letter = getLetter(d);
+        {heart_rate_samples.map((d) => {
+          const letter = getSampleTime(d);
           const barWidth = xScale.bandwidth();
-          const barHeight = yMax - (yScale(getLetterFrequency(d)) ?? 0);
+          const barHeight = yMax - (yScale(getHeartRate(d)) ?? 0);
           const barX = xScale(letter);
           const barY = yMax - barHeight;
           return (
@@ -69,7 +68,7 @@ export default function Chart({
               y={barY}
               width={barWidth}
               height={barHeight}
-              fill="rgba(23, 233, 217, .5)"
+              fill="rgba(245, 155, 39, 0.8)"
             />
           );
         })}
