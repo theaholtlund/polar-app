@@ -2,7 +2,7 @@
 import React, { useMemo } from "react";
 import { Bar } from "@visx/shape";
 import { Group } from "@visx/group";
-import { GradientTealBlue } from "@visx/gradient";
+import { GradientOrangeRed } from "@visx/gradient";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { HeartRateSamples } from "../types/heartRates";
 
@@ -52,7 +52,7 @@ export default function Chart({
 
   return width < 10 ? null : (
     <svg width={width} height={height}>
-      <GradientTealBlue id="teal" />
+      <GradientOrangeRed id="teal" />
       <rect width={width} height={height} fill="url(#teal)" rx={14} />
       <Group top={verticalMargin / 2}>
         {heart_rate_samples.map((d) => {
@@ -68,7 +68,7 @@ export default function Chart({
               y={barY}
               width={barWidth}
               height={barHeight}
-              fill="rgba(245, 155, 39, 0.8)"
+              fill="rgba(248, 46, 0, 0.4)"
             />
           );
         })}
