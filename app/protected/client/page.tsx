@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
-import TimeRangeSelector from "../../components/TimeRangeSelector";
+import TimeRangeSelector from "../../components/TimeSelector";
 import Chart from "@/app/components/Chart";
 import { HeartRateData } from "@/app/types/heartRates";
 
@@ -65,6 +65,16 @@ const ClientProtectPage = () => {
     return <p>Loading...</p>;
   }
 
+  // Only include sample of heart rates
+  const reducedArray = (array: any) => {
+    return array.reduce((result: any, currentValue: any, index: number) => {
+      if (index % 4 === 0) {
+        result.push(currentValue);
+      }
+      return result;
+    }, []);
+  };
+
   return (
     <section className="py-24">
       <div className="container mx-auto client-page-content">
@@ -82,8 +92,8 @@ const ClientProtectPage = () => {
                 <p>{rate.date}</p>
                 <Chart
                   height={500}
-                  width={600}
-                  heart_rate_samples={rate.heart_rate_samples}
+                  width={1000}
+                  heart_rate_samples={reducedArray(rate.heart_rate_samples)}
                 />
               </>
             ))}
