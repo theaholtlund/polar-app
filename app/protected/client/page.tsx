@@ -5,16 +5,8 @@ import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import TimeRangeSelector from "../../components/TimeRangeSelector";
-
-// Type definition for the props expected
-interface HeartRateData {
-  polar_user: string;
-  date: string;
-  heart_rate_samples: {
-    heart_rate: number;
-    sample_time: string;
-  }[];
-}
+import Chart from "@/app/components/Chart";
+import { HeartRateData } from "@/app/types/heartRates";
 
 // Define client rendered page
 const ClientProtectPage = () => {
@@ -81,17 +73,18 @@ const ClientProtectPage = () => {
           protected page
         </h1>
         <TimeRangeSelector onTimeRangeChange={handleTimeRangeChange} />
+
         <h2 className="mt-4 font-medium">Heart Rate Data:</h2>
         {heartRates.length > 0 ? (
           <div>
             {heartRates.map((rate: HeartRateData, index: number) => (
               <>
                 <p>{rate.date}</p>
-                <p>
-                  {rate.heart_rate_samples.map((heartRate) => {
-                    return <p>{heartRate.heart_rate}</p>;
-                  })}
-                </p>
+                <Chart
+                  height={500}
+                  width={600}
+                  heart_rate_samples={rate.heart_rate_samples}
+                />
               </>
             ))}
           </div>
