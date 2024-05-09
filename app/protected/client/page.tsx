@@ -60,8 +60,9 @@ const ClientProtectPage = () => {
       headers: headers,
     })
       .then((response) => response.json())
-      .then((data) => {
-        setHeartRates(data);
+      .then((response) => {
+        setHeartRates(response.data.heart_rates);
+        console.log("LOLLLL", response.data.heart_rates);
       })
       .catch((error) => {
         console.error("Failed to fetch heart rate data:", error);
@@ -82,13 +83,18 @@ const ClientProtectPage = () => {
         <TimeRangeSelector onTimeRangeChange={handleTimeRangeChange} />
         <h2 className="mt-4 font-medium">Heart Rate Data:</h2>
         {heartRates.length > 0 ? (
-          <ul>
+          <div>
             {heartRates.map((rate: HeartRateData, index: number) => (
-              <li
-                key={index}
-              >{`Time: ${rate.date}, Heart Rate: ${rate.heart_rate_samples}`}</li>
+              <>
+                <p>{rate.date}</p>
+                <p>
+                  {rate.heart_rate_samples.map((heartRate) => {
+                    return <p>{heartRate.heart_rate}</p>;
+                  })}
+                </p>
+              </>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>
             Select a time range to see registered heart rates in that time
