@@ -79,7 +79,7 @@ const ClientProtectPage = () => {
     <section className="py-24">
       <div className="container mx-auto client-page-content">
         <h1 className="text-2xl font-bold">
-          This is a <span className="text-emerald-500">client-side</span>{" "}
+          This is a <span className="text-orange-300">client-side</span>{" "}
           protected page
         </h1>
         <TimeRangeSelector onTimeRangeChange={handleTimeRangeChange} />

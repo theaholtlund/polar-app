@@ -35,7 +35,7 @@ const ServerProtectedPage = async () => {
     <section className="py-24">
       <div className="container mx-auto server-page-content">
         <h1 className="text-2xl font-bold">
-          This is a <span className="text-emerald-500">server-side</span>{" "}
+          This is a <span className="text-orange-300">server-side</span>{" "}
           protected page
         </h1>
         <h2 className="mt-4 font-medium">You are logged in as:</h2>
