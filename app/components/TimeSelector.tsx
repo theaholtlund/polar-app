@@ -5,7 +5,7 @@ import timeRange from "../../styles/TimeRange.module.css";
 
 // Type definition for the props expected
 interface TimeRangeSelectorProps {
-  onTimeRangeChange: (from: string, to: string) => void;
+  onTimeRangeChange: (from: string, to: string, localFiles: boolean) => void;
 }
 
 // Define component, allowing users to select a date range
@@ -16,11 +16,16 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
   // Set default date values, can be changed by user in interface
   const [from, setFrom] = useState("2023-06-01");
   const [to, setTo] = useState("2023-06-28");
+  const [checked, setChecked] = useState(false);
+
+  const handleChangeCheckbox = () => {
+    setChecked(!checked);
+  };
 
   // Handle form submission, prevent default form behavior and trigger callback
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    onTimeRangeChange(from, to);
+    onTimeRangeChange(from, to, checked);
   };
 
   // JSX layout for component, include two input fields and submit button
@@ -52,8 +57,18 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
           required
         />
       </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={handleChangeCheckbox}
+          />
+          Use local files
+        </label>
+      </div>
       <button type="submit" className={customButton["custom-button"]}>
-        Fetch Heart Rates
+        Show heart rate data
       </button>
     </form>
   );

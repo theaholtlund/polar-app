@@ -27,8 +27,6 @@ export default function Chart({
   const xMax = width;
   const yMax = height - verticalMargin;
 
-  console.log(heart_rate_samples);
-
   // Scales, memoise the result for performance
   const xScale = useMemo(
     () =>

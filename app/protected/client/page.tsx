@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import TimeRangeSelector from "../../components/TimeSelector";
 import Chart from "@/app/components/Chart";
 import { HeartRateData } from "@/app/types/heartRates";
+import { getLocalJsonFiles } from "@/app/utils/localFiles";
 
 // Define client rendered page
 const ClientProtectPage = () => {
@@ -19,7 +20,11 @@ const ClientProtectPage = () => {
 
   const [heartRates, setHeartRates] = useState<HeartRateData[]>([]);
 
-  const handleTimeRangeChange = (from: string, to: string) => {
+  const handleTimeRangeChange = (
+    from: string,
+    to: string,
+    localFiles: boolean
+  ) => {
     if (!session) return;
 
     // Account for Polar API limitations
@@ -47,14 +52,13 @@ const ClientProtectPage = () => {
       Authorization: `Bearer ${session.accessToken}`,
     };
 
-    fetch(`/api/heart-rate?from=${from}&to=${to}`, {
+    fetch(`/api/heart-rate?from=${from}&to=${to}&local=${localFiles}`, {
       method: "GET",
       headers: headers,
     })
       .then((response) => response.json())
       .then((response) => {
         setHeartRates(response.data.heart_rates);
-        console.log("LOLLLL", response.data.heart_rates);
       })
       .catch((error) => {
         console.error("Failed to fetch heart rate data:", error);
@@ -68,7 +72,7 @@ const ClientProtectPage = () => {
   // Only include sample of heart rates
   const reducedArray = (array: any) => {
     return array.reduce((result: any, currentValue: any, index: number) => {
-      if (index % 4 === 0) {
+      if (index % 8 === 0) {
         result.push(currentValue);
       }
       return result;
@@ -88,14 +92,14 @@ const ClientProtectPage = () => {
         {heartRates.length > 0 ? (
           <div>
             {heartRates.map((rate: HeartRateData, index: number) => (
-              <>
+              <div key={index}>
                 <p>{rate.date}</p>
                 <Chart
                   height={500}
                   width={1000}
                   heart_rate_samples={reducedArray(rate.heart_rate_samples)}
                 />
-              </>
+              </div>
             ))}
           </div>
         ) : (
