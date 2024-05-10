@@ -14,19 +14,21 @@ To set up the Polar Data Analysis tool on your local environment, follow these s
 openssl rand -base64 32
 ```
 
-3. Install project dependencies specified in `package.json` file:
+3. It is possible to add downloaded Polar data to be used for charts. In order to use such data files, create a folder called `user-data`, and add your files to the directory.
+
+4. Install project dependencies specified in `package.json` file:
 
 ```bash
 npm install
 ```
 
-4. Then, run the application:
+5. Then, run the application:
 
 ```bash
 npm run dev
 ```
 
-5. Open [localhost](http://localhost:3000) with your browser to interact with the application.
+6. Open [localhost](http://localhost:3000) with your browser to interact with the application.
 
 ## Client vs. Server Protected Page
 
