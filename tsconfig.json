@@ -28,8 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/heart-rate",
-    "app/upload/client.tsx"
+    "app/api/heart-rate"
   ],
   "exclude": ["node_modules"]
 }
