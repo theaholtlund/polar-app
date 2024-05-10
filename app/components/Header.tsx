@@ -17,7 +17,10 @@ const Header = () => {
           <li className="header-nav-li">
             <Link href="/protected/client">Client Page (Protected)</Link>
           </li>
-          <li>
+          <li className="header-nav-li">
+            <Link href="/upload">Upload Your Own Data</Link>
+          </li>
+          <li className="header-nav-li">
             <SignInButton />
           </li>
         </ul>
