@@ -2,6 +2,7 @@
 export default function App() {
   return (
     <section className="py-24 text-center">
+      <link rel="icon" href="/favicon.ico?" type="image/x-icon" />
       <div className="container mx-auto">
         <h1 className="text-2xl font-semibold tracking-tight">
           Polar Data Analysis

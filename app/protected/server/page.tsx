@@ -34,6 +34,7 @@ const ServerProtectedPage = async () => {
   return (
     <section className="py-24">
       <div className="container mx-auto server-page-content">
+        <link rel="icon" href="/favicon.ico?" type="image/x-icon" />
         <h1 className="text-2xl font-bold">
           This is a <span className="text-orange-300">server-side</span>{" "}
           protected page
