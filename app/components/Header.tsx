@@ -12,7 +12,9 @@ const Header = () => {
             <Link href="/">Home Page</Link>
           </li>
           <li className="header-nav-li">
-            <Link href="/protected/server">Server Page (Protected)</Link>
+            <Link href="/protected/server">
+              Server Page (Under Development)
+            </Link>
           </li>
           <li className="header-nav-li">
             <Link href="/protected/client">Client Page (Protected)</Link>
