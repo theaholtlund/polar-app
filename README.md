@@ -40,11 +40,13 @@ npm run dev
 
 For those interested in diving deeper into the Next.js framework, the following resources are availabile:
 
-- [Next.js Documentation](https://nextjs.org/docs): Learn about Next.js features and API
-- [Learn Next.js](https://nextjs.org/learn): An interactive Next.js tutorial
+- [Next.js Documentation](https://nextjs.org/docs): Learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn): An interactive Next.js tutorial.
+- [NextAuth.js Options](https://next-auth.js.org/configuration/options): Customise authentication in Next.js apps by controlling providers, sessions and callback URLs.
 
 ## Additional Resources
 
 Documentation and supporting material for setting up the app:
 
-- [Polar AccessLink API v3](https://www.polar.com/accesslink-api/?python#polar-accesslink-api): Managing and setting up the Polar API
+- [Polar Flow Profile](https://flow.polar.com/diary/training-list): See recent sessions in Polar Flow, for quality control.
+- [Polar AccessLink API v3](https://www.polar.com/accesslink-api/?python#polar-accesslink-api): Managing and setting up the Polar API.
